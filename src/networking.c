@@ -954,7 +954,7 @@ void addReplyLongLong(client *c, long long ll) {
 
 void addReplyAggregateLen(client *c, long length, int prefix) {
     serverAssert(length >= 0);
-    addReplyLongLongWithPrefix(c,length,prefix);
+    addReplyLongLongWithPrefix(c, length, prefix);
 }
 
 void addReplyArrayLen(client *c, long length) {
@@ -964,7 +964,7 @@ void addReplyArrayLen(client *c, long length) {
 void addReplyMapLen(client *c, long length) {
     int prefix = c->resp == 2 ? '*' : '%';
     if (c->resp == 2) length *= 2;
-    addReplyAggregateLen(c,length,prefix);
+    addReplyAggregateLen(c, length, prefix);
 }
 
 void addReplySetLen(client *c, long length) {
